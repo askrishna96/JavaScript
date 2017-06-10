@@ -1,7 +1,10 @@
 // (example) Write a function that accepts two number arguments and adds them
 // together.
-var add = function () {
+var add = function (a,b) {
+  var c=a+b;
+  return c;
 };
+console.log(add(1,2));
 
 
 // Create a function that takes in a cost and a quantity and outputs the total
@@ -9,8 +12,11 @@ var add = function () {
 //
 //     var preTaxTotal = totalCost(5, 5.99); // 5 items at 5.99
 //     //=> 29.950000000000003
-var totalCost = function () {
+var totalCost = function (cost,quantity) {
+  var total=cost*quantity;
+  return total;
 };
+console.log(totalCost(50,100));
 
 
 // Write a function that takes a rank and a suit as input, and returns a string
@@ -21,8 +27,11 @@ var totalCost = function () {
 //
 //     cardString("queen", "hearts");
 //     //=> queen of hearts
-var cardString = function () {
+var cardString = function (rank,suit) {
+  var op= rank + " of " + suit;
+  return op;
 };
+console.log(cardString("Jack","spades"));
 
 
 // Write a function called `openTag` that accepts a tag name and returns an
@@ -33,9 +42,11 @@ var cardString = function () {
 //
 //     openTag("div");
 //     //=> <div>
-var openTag = function () {
+var openTag = function (otn) {
+  var op= '<'+otn+'>'
+  return op;
 };
-
+console.log(openTag("sai"));
 
 // Similarly, write a function called `closingTag` that returns the closing HTML tag
 // with that name.
@@ -45,8 +56,11 @@ var openTag = function () {
 //
 //     closeTag("div");
 //     //=> </div>
-var closeTag = function () {
+var closeTag = function (ctn) {
+  var op='</'+ctn+'>'
+  return op;
 };
+console.log(closeTag("krishna"));
 
 
 // Write a function called `toTagString` that accepts two inputs: a tag name,
@@ -62,5 +76,8 @@ var closeTag = function () {
 //
 // Although I won't be testing for this, your code should re-use the functions that
 // you created in the previous section.
-var toTagString = function () {
+var toTagString = function (tn,Is) {
+  var op= '<' + tn + '>'+ Is + '</' + tn + '>'
+  return op;
 };
+console.log(toTagString('V','This is a vital message'));

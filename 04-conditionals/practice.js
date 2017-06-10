@@ -12,9 +12,21 @@
 //
 //     passwordStrength("helloone");
 //     //=> medium
-var passwordStrength = function () {
+var passwordStrength = function (str) {
+  var x = str.length;
+  if (x >= 10)
+  {
+    var op = 'Strong';
+  }
+  else if (x >= 7 && x < 10) {
+    var op = 'Medium'
+  }
+  else if (x < 7) {
+    var op = 'Weak'
+  }
+  return op;
 };
-
+console.log(passwordStrength('SAI_KRISHNA'));
 
 // A year is a leap year if it is divisible by 4, unless it is also divisible by
 // 100 in which case it is not a leap year unless it is also divisible by
@@ -37,9 +49,37 @@ var passwordStrength = function () {
 //
 //      isLeapYear("hello");
 //      //=> THAT'S NOT A NUMBER!
-var isLeapYear = function () {
+var isLeapYear = function (y) {
+  if (typeof(y) === 'number')
+  {
+    if ( y%100 == 0)
+    {
+      if (y % 400 == 0)
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
+    }
+    else
+    {
+      if (y % 4 == 0)
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
+    }
+  }
+  else if (typeof(y) !== 'number') {
+    throw "The given value is not a valid year !";
+  }
 };
-
+console.log(isLeapYear(2000));
 
 // Write a function that accepts three strings and input, and returns the one
 // that would come earliest in the dictionary.
@@ -57,8 +97,30 @@ var isLeapYear = function () {
 //
 //      firstInDictionary("whale", 5, 10);
 //      //=> ALL THREE ARGS MUST BE STRINGS!
-var firstInDictionary = function () {
+var firstInDictionary = function (a,b,c) {
+  var f = a;
+  var s = b;
+  var t = c;
+  if (typeof(f) === 'string' && typeof(s) === 'string' && typeof(t) === 'string')
+  {
+    if (f<s && f<t)
+    {
+      return f;
+    }
+    else if (s<f && s<t)
+    {
+      return s;
+    }
+    else {
+      return t;
+    }
+  }
+  else
+  {
+    throw "The given inputs are not strings." ;
+  }
 };
+console.log(firstInDictionary('satish', 'sajesh', 'sat_prakash'))
 
 
 // Write a function that extracts a tag from a string representing an HTML
@@ -71,21 +133,52 @@ var firstInDictionary = function () {
 //
 //     getTagName("<p>this is wrong</div>");
 //     //=> Error: Not an HTML Element!
-var getTagName = function () {
+var getTagName = function (str) {
+      var d = str.indexOf('<');
+      var e = str.indexOf('>');
+      var i = str.slice(d+1 ,e);
+      var a = str.lastIndexOf('>');
+      var b = str.lastIndexOf('<');
+      var c = str.slice(b+2,a);
+      if (i == c)
+      {
+      return i;
+      }
+      else {
+        return 'NOT AN HTML ELEMENT';
+      }
 };
+console.log(getTagName('<div>SAI_KRISHNA</div>'));
 
 
 // Re-implement our improveTweet function so it can generate any of lol, omg,
 // lmao, and rofl.
-var improveTweet = function () {
+var improveTweet = function (str) {
+  var y = str;
+  var x = str.toUpperCase();
+  if (x.indexOf('LOL') === -1 || x.indexOf('OMG') === -1 && x.indexOf('LMAO') === -1 && x.indexOf('ROFL') === -1)
+  {
+    y = y + ' ' + 'LOL';
+    return y;
+  }
 };
+console.log(improveTweet('sai krishna lol'))
 
 
 // Write a function called `isQuestion` that returns true if the input is a
 // string and it ends in a question mark. We'll use this function in the next
 // practice problem.
-var isQuestion = function () {
+var isQuestion = function (str) {
+  var a = str.length;
+  if ( str.charAt(a-1) == '?')
+  {
+    return true;
+  }
+  else {
+    return false;
+  }
 };
+console.log(isQuestion('sai krishna ?'))
 
 
 // The Magic 8 Ball is a classic toy that allows you to ask a yes/no
@@ -161,10 +254,3 @@ var interjectAt = function () {
 // function with the appropriate arguments.
 var randomInterject = function () {
 };
-
-
-
-
-
-
-
