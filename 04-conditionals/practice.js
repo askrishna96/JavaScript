@@ -158,8 +158,10 @@ var improveTweet = function (str) {
   var x = str.toUpperCase();
   if (x.indexOf('LOL') === -1 || x.indexOf('OMG') === -1 && x.indexOf('LMAO') === -1 && x.indexOf('ROFL') === -1)
   {
-    y = y + ' ' + 'LOL';
-    return y;
+    if (x.indexOf('OMG') === -1)
+    {
+      
+    }
   }
 };
 console.log(improveTweet('sai krishna lol'))
@@ -204,7 +206,16 @@ console.log(isQuestion('sai krishna ?'))
 //
 //     magic8Ball("Is this a question?");
 //     //=> Signs point to yes
-var magic8Ball = function () {
+var magic8Ball = function (str) {
+  if( isQuestion(str) == 'true')
+  {
+    var R = str.length;
+    var r = Math.random(R);
+
+  }
+  else {
+    throw "THAT DOSEN't SOUND LIKE A QUESTION !";
+  }
 };
 
 

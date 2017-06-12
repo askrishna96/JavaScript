@@ -17,8 +17,24 @@
 //    isVowel("Y");
 //    //=> false
 //
-var isVowel = function () {
+var isVowel = function (v) {
+  var V = v.length;
+  if (V == 1)
+  {
+    var u = v.toLowerCase();
+    if (u == 'a' || u == 'e' || u == 'i' || u == 'o' || u == 'u')
+    {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+  else {
+    return "Input acceptable is only one character !";
+  }
 };
+console.log(isVowel('e'));
 
 
 // Write a function called `isLowerCaseLetter` that returns `true` if
@@ -39,8 +55,23 @@ var isVowel = function () {
 //    isLowerCaseLetter(true);
 //    //=> false
 //
-var isLowerCaseLetter = function () {
+var isLowerCaseLetter = function (v) {
+  var V = v.length;
+  if (V == 1)
+  {
+    if (v === v.toLowerCase())
+    {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+  else {
+    return "Input acceptable is only one character !";
+  }
 };
+console.log(isLowerCaseLetter('s'));
 
 
 // Write a function called `sumUpTo` so that it accepts a positive number `n`
@@ -59,8 +90,18 @@ var isLowerCaseLetter = function () {
 //     sumUpTo(-10);
 //     //=> input must be a zero or a positive number!
 //
-var sumUpTo = function () {
+var sumUpTo = function (n) {
+  var N = n;
+  if (N >= 0)
+  {
+    var op = ((N*N)+N)/2;
+    return op;
+  }
+  else {
+    return 'INPUT MUST BE A ZERO OR A POSITIVE NUMBER !';
+  }
 };
+console.log(sumUpTo(10000));
 
 
 // Write a function called `sumAToB` so that it accepts two parameters
@@ -82,8 +123,25 @@ var sumUpTo = function () {
 //     sumAToB("hello", "world");
 //     //=> inputs should be numbers!
 //
-var sumAToB = function () {
+var sumAToB = function (a,b) {
+  if (a >= 0 && b >=0 && typeof(a) == 'number' && typeof(b) == 'number')
+  {
+    if (b > a)
+    {
+    var op = (((b*b)+b)/2)-(((a*a)+a)/2);
+    return op+a;
+  }
+  if (a > b)
+  {
+    var op = (((a*a)+a)/2)-(((b*b)+b)/2);
+    return op+b;
+  }
+  }
+  else {
+    return 'INPUT MUST BE A ZERO OR A POSITIVE NUMBER !';
+  }
 };
+console.log(sumAToB(32,21));
 
 
 // Write a function called `countVowels` that accepts a string and
@@ -103,7 +161,8 @@ var sumAToB = function () {
 //     countVowels(true);
 //     //=> input to countVowels must be a string!
 //
-var countVowels = function () {
+var countVowels = function (str) {
+
 };
 
 
@@ -122,9 +181,20 @@ var countVowels = function () {
 //     reverse(true);
 //     //=> input to reverseString must be an string!
 //
-var reverseString = function () {
+var reverseString = function (str) {
+  if (typeof(str) == 'string')
+  {
+    var s = str.length;
+    for (var x = s-1; x = 0; x = x-1)
+    {
+      return str.charAt(x);
+    }
+  }
+  else {
+    return 'INPUT MUST BE A STRING !'
+  }
 };
-
+console.log(reverseString('krishna'));
 
 // A number is a prime number if it is only evenly divisible by 1 and itself
 // (although we don't consider 1 a prime number, so 2 is the first prime
@@ -149,8 +219,22 @@ var reverseString = function () {
 //     isPrime(-101);
 //     //=> false
 //
-var isPrime = function () {
+var isPrime = function (p) {
+  if (typeof(p) == 'number')
+  {
+    if (p >= 0 && p%p == 0)
+    {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+  else {
+    return false;
+  }
 };
+console.log(isPrime(27));
 
 
 // Using the `isPrime` function, write a function that accepts a number as
@@ -171,9 +255,18 @@ var isPrime = function () {
 //     sumPrimesUpTo("whatever");
 //     //=> input should be a number
 //
-var sumPrimesUpTo = function () {
+var sumPrimesUpTo = function (n) {
+  var x;
+  for (x; x<=n; x=x+1)
+  {
+    if (isPrime(x) == 'true')
+    {
+      x = x+1;
+      return x;
+    }
+  }
 };
-
+console.log(sumPrimesUpTo(100));
 
 // Using the `isPrime` function, write a function that takes in a
 // positive integer, n, and returns the first n numbers.
@@ -222,7 +315,8 @@ var sumOfFirstNPrimes = function () {
 //     removeNonLetters("this is a string; it has some punctuation!");
 //     //=> thisisastringithassomepunctuation
 //
-var removeNonLetters = function () {
+var removeNonLetters = function (str) {
+  
 };
 
 
